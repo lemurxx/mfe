@@ -6,7 +6,7 @@ const stencilMfeRegister = require('./stencil-mfe-register');
 const packageJson = require('../package.json');
 
 const domain = process.env.PRODUCTION_DOMAIN; // set in the container.yml / repo secret
-const stencilRemote = `${domain}/stencil/latest';
+const stencilRemote = `${domain}/stencil/latest`;
 
 const prodConfig = {
     mode: 'production',
@@ -18,7 +18,7 @@ const prodConfig = {
         new ModuleFederationPlugin({
             name: 'container',
             remotes: {
-                marketing: `marketing@${ domain } /marketing/latest / remoteEntry.js`
+                marketing: `marketing@${domain}/marketing/latest/remoteEntry.js`
             },
             shared: packageJson.dependencies
         }),
